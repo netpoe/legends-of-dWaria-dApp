@@ -15,8 +15,6 @@ export class CommandControl {
   bind(character: Character) {
     document.addEventListener('keydown', event => {
       const key = event.key || event.keyCode
-
-      console.log(key)
       character.do(key)
     })
   }

@@ -1,27 +1,35 @@
 import { CharacterActionInterface } from '@character/action.interface.character';
+import { CharacterActionState, ActionStateName } from '@character/action.state.character';
 
 export class CharacterAction implements CharacterActionInterface {
 
-  actionKeyMap: any = {}
+  keyMap: any = {}
 
-  mapActions() {
-    this.actionKeyMap['ArrowRight'] = 'walk'
-    this.actionKeyMap['ArrowUp'] = 'jump'
+  state: CharacterActionState
+
+  current: string
+
+  constructor() {
+    this.state = new CharacterActionState()
   }
 
-  do(key: string | number) {
-    const action = this.actionKeyMap[key]
-    if (action) {
-      this[action]()
-    }
+  mapActions() {
+    this.keyMap['ArrowRight'] = 'walk'
+    this.keyMap['ArrowUp'] = 'jump'
+    this.keyMap['a'] = 'punch'
+    this.keyMap['A'] = 'punch'
   }
 
   walk() {
-    console.log('walked')
+    this.state.set(ActionStateName.walking)
   }
 
   jump() {
-    console.log('jumped')
+    this.state.set(ActionStateName.jumping)
+  }
+
+  punch() {
+    this.state.set(ActionStateName.punching)
   }
 
 }
