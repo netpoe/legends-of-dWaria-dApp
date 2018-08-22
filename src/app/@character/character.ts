@@ -1,5 +1,5 @@
-import { CharacterAction } from '@character/action.character';
-import { CharacterCombo } from '@character/combo.character';
+import { CharacterAction } from '@character/action';
+import { CharacterCombo } from '@character/combo';
 
 export class Character {
 
@@ -9,23 +9,24 @@ export class Character {
   constructor() {
     this.action = new CharacterAction()
     this.combo = new CharacterCombo()
-    this.mapActions()
+    this.map()
   }
 
-  mapActions() {
-    this.action.mapActions()
+  map() {
+    this.action.mapMethods()
+    this.combo.mapMethods()
     return this
   }
 
   do(key: string | number) {
-    const method = this.action.keyMap[key]
+    const method = this.action.getMethod(key)
     if (method) {
-      this.action[method]()
+      this.action.execute(method)
       if (!this.combo.isListening) {
         this.combo.clear()
         this.combo.listen()
       }
-      this.combo.perform(this.action)
+      this.combo.build(this.action)
     }
     return this
   }
