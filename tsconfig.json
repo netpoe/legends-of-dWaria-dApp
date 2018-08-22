@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@control/*": [
+        "src/app/@control/*"
+      ],
+      "@character/*": [
+        "src/app/@character/*"
+      ]
+    }
   }
 }
