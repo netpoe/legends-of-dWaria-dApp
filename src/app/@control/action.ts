@@ -21,9 +21,9 @@ export class CharacterActionControl {
 
   mapActions() {
     this.keyMap['ArrowRight'] = new WalkAction()
-    // this.keyMap['ArrowUp'] = CharacterMethodName.jump
-    // this.keyMap['a'] = CharacterMethodName.punch
-    // this.keyMap['A'] = CharacterMethodName.punch
+    this.keyMap['ArrowUp'] = new JumpAction()
+    this.keyMap['a'] = new PunchAction()
+    this.keyMap['A'] = new PunchAction()
     return this
   }
 
@@ -42,6 +42,25 @@ export class WalkAction extends CharacterActionControl implements CharacterActio
     super()
     this.name = CharacterActionName.walk
     this.stateName = ActionStateName.walking
+  }
+
+}
+export class JumpAction extends CharacterActionControl implements CharacterActionInterface {
+
+  constructor() {
+    super()
+    this.name = CharacterActionName.jump
+    this.stateName = ActionStateName.jumping
+  }
+
+}
+
+export class PunchAction extends CharacterActionControl implements CharacterActionInterface {
+
+  constructor() {
+    super()
+    this.name = CharacterActionName.punch
+    this.stateName = ActionStateName.punching
   }
 
 }

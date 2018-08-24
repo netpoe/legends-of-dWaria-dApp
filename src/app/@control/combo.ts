@@ -27,7 +27,7 @@ export class CharacterCombo {
 
   mapActionNames() {
     this.bind(new JumpAndPunchCombo, [ActionStateName.jumping, ActionStateName.punching])
-    // this.bindMethod(ComboMethodName.doubleJump, [ActionStateName.jumping, ActionStateName.jumping])
+    this.bind(new DoubleJumpCombo, [ActionStateName.jumping, ActionStateName.jumping])
     return this
   }
 
@@ -75,6 +75,15 @@ export class JumpAndPunchCombo extends CharacterCombo implements CharacterComboI
   constructor() {
     super()
     this.stateName = ComboStateName.jumpingAndPunching
+  }
+
+}
+
+export class DoubleJumpCombo extends CharacterCombo implements CharacterComboInterface {
+
+  constructor() {
+    super()
+    this.stateName = ComboStateName.doubleJumping
   }
 
 }
