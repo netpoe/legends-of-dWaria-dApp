@@ -20,11 +20,16 @@ export class CharacterActionControl {
   }
 
   mapActions() {
-    this.keyMap['ArrowRight'] = new WalkAction()
-    this.keyMap['ArrowUp'] = new JumpAction()
-    this.keyMap['a'] = new PunchAction()
-    this.keyMap['A'] = new PunchAction()
+    this.bind(new WalkAction, ['ArrowRight'])
+    this.bind(new JumpAction, ['ArrowUp'])
+    this.bind(new PunchAction, ['a', 'A'])
     return this
+  }
+
+  bind(action: CharacterActionControl, keys: Array<string>) {
+    keys.forEach(key => {
+      this.keyMap[key] = action
+    })
   }
 
   getAction(key: string | number) {
