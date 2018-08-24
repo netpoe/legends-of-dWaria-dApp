@@ -11,6 +11,7 @@ export class CharacterActionState {
   set(name: ActionStateName) {
     console.log(`Character is ${name}`)
     this.name = name
+    return this
   }
 
   is(name: ActionStateName): boolean {
