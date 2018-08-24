@@ -23,6 +23,12 @@
       ],
       "@character/*": [
         "src/app/@character/*"
+      ],
+      "@stage/*": [
+        "src/app/@stage/*"
+      ],
+      "@game/*": [
+        "src/app/@game/*"
       ]
     }
   }
