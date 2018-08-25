@@ -4,7 +4,7 @@ import * as PIXI from 'pixi.js';
 @Injectable({
   providedIn: 'root'
 })
-export class GameService {
+export class Game {
 
   engine: PIXI.Application
 
@@ -17,6 +17,7 @@ export class GameService {
 
   render() {
     document.body.appendChild(this.engine.view)
+    return this
   }
 
 }

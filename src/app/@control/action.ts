@@ -7,7 +7,7 @@ export enum CharacterActionName {
   punch = 'punch',
 }
 
-export class CharacterActionControl {
+export class CharacterActionControl implements CharacterActionInterface {
 
   keyMap: any = {}
 
@@ -41,7 +41,7 @@ export class CharacterActionControl {
   }
 }
 
-export class WalkAction extends CharacterActionControl implements CharacterActionInterface {
+export class WalkAction extends CharacterActionControl {
 
   constructor() {
     super()
@@ -50,7 +50,7 @@ export class WalkAction extends CharacterActionControl implements CharacterActio
   }
 
 }
-export class JumpAction extends CharacterActionControl implements CharacterActionInterface {
+export class JumpAction extends CharacterActionControl {
 
   constructor() {
     super()
@@ -60,7 +60,7 @@ export class JumpAction extends CharacterActionControl implements CharacterActio
 
 }
 
-export class PunchAction extends CharacterActionControl implements CharacterActionInterface {
+export class PunchAction extends CharacterActionControl {
 
   constructor() {
     super()
